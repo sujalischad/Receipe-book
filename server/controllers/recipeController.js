@@ -31,6 +31,7 @@ exports.exploreCategories = async(req, res) => {
   try {
     const limitNumber = 20;
     const categories = await Category.find({}).limit(limitNumber);
+    // console.log(categories);
     res.render('categories', { title: 'Cooking Blog - Categoreis', categories } );
   } catch (error) {
     res.satus(500).send({message: error.message || "Error Occured" });
@@ -112,7 +113,7 @@ exports.exploreRandom = async(req, res) => {
   } catch (error) {
     res.satus(500).send({message: error.message || "Error Occured" });
   }
-} 
+}
 
 
 /**
@@ -170,9 +171,6 @@ exports.submitRecipeOnPost = async(req, res) => {
     res.redirect('/submit-recipe');
   }
 }
-
-
-
 
 // Delete Recipe
 // async function deleteRecipe(){
